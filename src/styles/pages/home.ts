@@ -1,18 +1,27 @@
 import { styled } from "..";
 
 export const HomeContainer = styled('main', {
-  display: 'flex',
   width: '100%',
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
-  minHeight: 656,
   marginLeft: 'auto',
+})
+
+export const SliderContainer = styled('div', {
+  display: 'flex',
+  margin: '0 auto',
+  gap: '3rem',
+
+  '.embla__slide': {
+    minWidth: '43.5rem',
+  },
 })
 
 export const Product = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  width: 540,
+  width: '100%',
+  minHeight: '41rem',
   position: 'relative',
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
   borderRadius: 8,
