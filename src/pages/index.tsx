@@ -5,9 +5,11 @@ import { GetStaticProps } from "next";
 import Stripe from "stripe";
 import Link from "next/link";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import ProductsSkeletons from "../components/ProductsSkeletons";
+import CartButton from "../components/CartButton";
+import { CartContext } from "../contexts/CartContext";
 
 interface HomeProps {
   products: {
@@ -20,6 +22,7 @@ interface HomeProps {
 
 export default function Home({ products }: HomeProps) {
   const [isProductsLoaded, setIsProductsLoaded] = useState(false)
+  const { addNewItem, isItemAlreadyAdded } = useContext(CartContext)
 
   useEffect(() => {
     setTimeout(() => setIsProductsLoaded(true), 2000)
@@ -30,6 +33,12 @@ export default function Home({ products }: HomeProps) {
     skipSnaps: false,
     dragFree: true,
   })
+
+  const handleAddToCart = (event, product) => {
+    event.preventDefault()
+
+    addNewItem(product)
+  }
 
   return (
     <>
@@ -50,8 +59,16 @@ export default function Home({ products }: HomeProps) {
                           <Image src={product.imageUrl} alt="" width={520} height={480} />
           
                           <footer>
-                            <strong>{product.name}</strong>
-                            <span>{product.price}</span>
+                            <div>
+                              <strong>{product.name}</strong>
+                              <span>{product.price}</span>
+                            </div>
+
+                            <CartButton
+                              type="product"
+                              onClick={(event) => handleAddToCart(event, product)}
+                              disabled={isItemAlreadyAdded(product.id)}
+                            />
                           </footer>
                         </Product>
                       </Link>
@@ -84,7 +101,8 @@ export const getStaticProps: GetStaticProps = async() => {
       price: new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD'
-      }).format(price.unit_amount / 100)
+      }).format(price.unit_amount / 100),
+      defaultPriceId: price.id
     }
   })
 

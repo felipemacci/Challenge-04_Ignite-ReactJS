@@ -9,6 +9,9 @@ export const Container = styled('div', {
 })
 
 export const Header = styled('header', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
   width: '100%',
   maxWidth: '1180px',
   margin: '0 auto',

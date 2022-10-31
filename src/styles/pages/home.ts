@@ -36,7 +36,7 @@ export const Product = styled('div', {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '2rem',
+    padding: '1.25rem',
     position: 'absolute',
     right: '0.25rem',
     bottom: '0.25rem',
@@ -47,16 +47,22 @@ export const Product = styled('div', {
     borderRadius: 6,
     transition: '0.2s ease-in-out',
 
-    strong: {
-      fontSize: '$lg',
-      color: '$gray100'
-    },
+    div: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.25rem',
 
-    span: {
-      fontSize: '$xl',
-      fontWeight: 'bold',
-      color: '$green300'
-    },
+      strong: {
+        fontSize: '$lg',
+        color: '$gray100'
+      },
+  
+      span: {
+        fontSize: '$xl',
+        fontWeight: 'bold',
+        color: '$green300'
+      }
+    }
   },
 
   '&:hover': {

@@ -17,5 +17,23 @@ export const globalStyles = globalCss({
   'body, input, textarea, button': {
     fontFamily: 'Roboto',
     fontWeight: 400
+  },
+
+  '::-webkit-scrollbar': {
+    width: 5,
+    height: 5
+  },
+
+  '::-webkit-scrollbar-track': {
+    background: 'transparent'
+  },
+
+  '::-webkit-scrollbar-thumb': {
+    background: 'rgb(200, 200, 210)',
+    borderRadius: 5
+  },
+
+  '::-webkit-scrollbar-thumb:hover': {
+    background: 'rgb(165, 165, 175)'
   }
 })

@@ -15,7 +15,7 @@ export const SuccessContainer = styled('main', {
 
   p: {
     maxWidth: 560,
-    marginTop: '2rem',
+    marginTop: '3rem',
     lineHeight: 1.4,
     textAlign: 'center',
     fontSize: '$xl',
@@ -36,17 +36,25 @@ export const SuccessContainer = styled('main', {
   }
 })
 
+export const ImageGrid = styled('div', {
+  display: 'flex',
+
+  "div + div": {
+    marginLeft: "calc(-140px / 2)",
+  }
+})
+
 export const ImageContainer = styled('div', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  width: '100%',
-  maxWidth: 130,
-  height: 145,
+  width: 140,
+  height: 140,
   marginTop: '4rem',
   padding: '0.25rem',
   background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
-  borderRadius: 8,
+  borderRadius: '50%',
+  boxShadow: '0 3px 16px 0 rgba(0,0,0,0.9)',
 
   img: {
     objectFit: 'cover'
