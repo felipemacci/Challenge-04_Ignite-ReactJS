@@ -10,7 +10,7 @@
 <br />
 
 #### TECHNOLOGIES:
-- HTML 📄
+- NextJS ⚜
 - Stitches 🎨
 - TypeScript 💻
 - ReactJS ⚛
